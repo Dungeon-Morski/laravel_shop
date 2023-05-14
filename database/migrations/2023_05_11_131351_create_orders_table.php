@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->string('result')->nullable();
             $table->integer('price');
-            $table->boolean('status')->default('Новый');
+            $table->string('status')->default('Новый');
             $table->softDeletes();
             $table->timestamps();
         });
