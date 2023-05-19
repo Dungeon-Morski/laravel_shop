@@ -75,7 +75,7 @@
 
 <div class="product_block my-12">
     <div class="container">
-        <div class="flex gap-3 flex-wrap">
+        <div class="flex gap-3 flex-wrap flex-col sm:flex-row items-center">
             @foreach($products as $product)
                 <a href="{{route('admin.productShow', $product->id)}}">
                     <div class="product border rounded  p-2">

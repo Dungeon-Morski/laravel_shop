@@ -41,8 +41,8 @@
                     <a href="{{route('register')}}">Регистрация</a>
                     <a href="{{route('login.index')}}">Войти</a>
                 @endif
-                <div class="burgerBlock flex items-center justify-center md:hidden absolute right-4 top-4">
-                    <p class="burgerBtn">X</p>
+                <div class="burgerBlock flex items-center justify-center md:hidden absolute right-6 top-6">
+                    <img src="{{asset('images/burger-icon.svg')}}" class="burgerBtn">
                 </div>
 
             </div>

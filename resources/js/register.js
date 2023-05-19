@@ -40,14 +40,7 @@ validator
             errorMessage: 'Максимальная длина имени 15 символов',
         },
     ])
-    // .addField('#patronymic', [
-    //
-    //     {
-    //         rule: 'maxLength',
-    //         value: 15,
-    //         errorMessage: 'Максимальная длина имени 15 символов',
-    //     },
-    // ])
+
     .addField('#login', [
         {
             rule: 'required',

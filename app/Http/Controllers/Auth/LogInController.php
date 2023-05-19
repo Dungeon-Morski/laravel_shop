@@ -33,7 +33,7 @@ class LogInController extends Controller
                 return response()->json(['status' => 200, 'message' => 'Ошибка']);
             }
 
-            return response()->json(['status' => 200, 'logged' => true]);
+            return response()->json(['status' => 200, 'logged' => true,'url'=>route('order.index')]);
         }
         return response()->json(['status' => 200, 'logged' => false]);
     }
@@ -56,15 +56,19 @@ class LogInController extends Controller
             }
 
         }
-        if (Auth::user()->is_admin == 1) {
-            return redirect()->route('admin.index');
+        if (Auth::user()) {
+            if (Auth::user()->is_admin == 1) {
+                return redirect()->route('admin.index');
+            }
+            return redirect()->route('products');
         }
+
 
         throw ValidationException::withMessages([
             'login' => 'Пользователь не найден',
         ]);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('products');
 
 
     }

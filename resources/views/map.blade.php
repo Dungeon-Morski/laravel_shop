@@ -13,9 +13,9 @@
         <p class="text-lg">Адрес: Улица 26-ти Бакинских Комиссаров, Москва</p>
         <p class="text-lg">Номер: +7-945-234-65-31</p>
         <p class="text-lg">Email: MirCvetor2023@mail.ru</p>
-        <div class="flex justify-center mt-4 w-[900px] h-[500px]">
+        <div class="flex justify-center mt-4 mapBlock">
             <img src="{{asset('images/map.jpg')}}"
-                 alt="product-image" class="w-full h-full object-cover">
+                 alt="product-image" class="">
         </div>
     </div>
 </div>

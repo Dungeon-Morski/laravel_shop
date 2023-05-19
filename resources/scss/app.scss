@@ -32,8 +32,10 @@ body {
             font-size: 18px;
 
             &:hover {
-                color: white;
-                transition: .3s;
+                @media screen and (min-width: 768px) {
+                    color: white;
+                    transition: .3s;
+                }
             }
         }
 
@@ -153,9 +155,12 @@ body {
     transition: .3s;
 
     &:hover {
-        cursor: pointer;
-        color: black;
-        transition: .3s;
+        @media screen and (min-width: 768px) {
+            cursor: pointer;
+            color: black;
+            transition: .3s;
+        }
+
     }
 }
 
@@ -181,17 +186,17 @@ body {
 }
 
 .burgerBlock {
-    background-color: black;
-    border-radius: 50%;
-    padding: 12px 15px;
-
-    .burgerBtn {
-
-        color: white;
-        line-height: 1em;
-    }
+    cursor: pointer;
 }
 
+.mapBlock {
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        max-width: 750px;
+    }
+}
 
 .container {
     max-width: 1200px;
@@ -202,7 +207,10 @@ body {
 .product_block {
     .card {
         &:hover {
-            background-color: #dff1ea;
+            @media screen and (min-width: 768px) {
+                background-color: #dff1ea;
+            }
+
         }
     }
 
@@ -232,8 +240,11 @@ body {
             font-size: 16px;
 
             &:hover {
-                color: black;
-                transition: .3s;
+                @media screen and (min-width: 768px) {
+                    color: black;
+                    transition: .3s;
+                }
+
             }
         }
     }
@@ -262,6 +273,7 @@ body {
         }
 
         img {
+            width: 100%;
             max-width: 400px;
             border-radius: 5px;
         }
@@ -272,7 +284,10 @@ body {
             padding: 10px 15px;
 
             &:hover {
-                color: white;
+                @media screen and (min-width: 768px) {
+                    color: white;
+                }
+
             }
         }
     }
@@ -292,8 +307,12 @@ body {
         }
 
         &:hover {
-            box-shadow: 4px 4px 4px #75d3b3;
-            transition: .3s;
+            @media screen and (min-width: 768px) {
+                box-shadow: 4px 4px 4px #75d3b3;
+                transition: .3s;
+            }
+
+
         }
 
         img {
@@ -313,8 +332,12 @@ body {
                 transition: .3s;
 
                 &:hover {
-                    background: #1c7e4c;
-                    transition: .3s;
+                    @media screen and (min-width: 768px) {
+                        background: #1c7e4c;
+                        transition: .3s;
+                    }
+
+
                 }
             }
 
@@ -323,8 +346,8 @@ body {
     }
 
     .product.show {
-        width: 100%;
-
+        //width: 100%;
+        //width: min-content;
         img {
             max-width: 600px;
         }
@@ -332,10 +355,6 @@ body {
         .product_info {
             p {
                 font-size: 18px;
-            }
-
-            .title {
-                font-size: 22px;
             }
 
             form {
@@ -366,8 +385,11 @@ body {
         transition: .3s;
 
         &:hover {
-            background-color: #1b707c;
-            transition: .3s;
+            @media screen and (min-width: 768px) {
+                background-color: #1b707c;
+                transition: .3s;
+            }
+
         }
     }
 }
@@ -396,7 +418,11 @@ body {
             margin-top: 5px;
 
             &:hover {
-                background: #34d3ad;
+                @media screen and (min-width: 768px) {
+                    background: #34d3ad;
+                }
+
+
             }
         }
     }

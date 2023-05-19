@@ -48,7 +48,7 @@ class RegistrationController extends Controller
                 'password' => Hash::make($request->password),
             ]);
             Auth::login($user);
-            return response()->json(['status' => 200, 'url' => route('dashboard')]);
+            return response()->json(['status' => 200, 'url' => route('products')]);
         } catch (\Throwable $e) {
             return response()->json(['status' => 404, 'message' => 'Логин или почта заняты']);
 

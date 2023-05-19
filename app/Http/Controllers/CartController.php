@@ -35,9 +35,8 @@ class CartController extends Controller
             $remove = Cart::remove($cart->product_id);
 
         }
-        return response()->json(['status' => 200, 'count' => $cart->quantity]);
+        return response()->json(['status' => 200, 'count' => $cart->quantity, 'product_quantity' => $cart->product->quantity, 'product_price' => $cart->product->price]);
     }
-
 
 
 }

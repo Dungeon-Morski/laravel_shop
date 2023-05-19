@@ -80,18 +80,10 @@ class AdminController extends Controller
                 'public', $data['image'], Str::random(40) . "." . $data['image']->extension()
             );
             $data['image'] = mb_substr($data['image'], 7, 99);
-        }
 
-        $product->update([
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'price' => $data['price'],
-            'category_id' => $data['category_id'],
-            'image' => $data['image'],
-            'quantity' => $data['quantity'],
-            'country' => $data['country'],
-            'color' => $data['color'],
-        ]);
+        }
+        $product->update($data);
+
         return back();
     }
 
@@ -146,7 +138,7 @@ class AdminController extends Controller
     //orders function
     public function orders()
     {
-        $orders = Order::withCount('orderProduct','user')->get();
+        $orders = Order::withCount('orderProduct', 'user')->get();
 
         return view('admin.orders', compact('orders'));
     }

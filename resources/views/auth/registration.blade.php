@@ -20,7 +20,7 @@
 <div class="container">
     <div class="form_block flex justify-center">
 
-        <form action="" method="post" class="regForm" id="regForm" novalidate>
+        <form action="" method="post" class="regForm" id="regForm">
             @csrf
             <h1 class="text-center text-lg">Регистрация</h1>
             <div class="message text-red-400">
@@ -30,11 +30,11 @@
             </div>
             <div>
                 <label for="surname">Фамилия</label>
-                <input type="text" id="surname" name="surname" placeholder="Иванов" pattern="[А-Яа-яЁё]" autofocus>
+                <input type="text" id="surname" name="surname" placeholder="Иванов" pattern="[А-Яа-яЁё]" autofocus required>
             </div>
             <div>
                 <label for="name">Имя</label>
-                <input type="text" id="name" name="name" placeholder="Иван">
+                <input type="text" id="name" name="name" placeholder="Иван" required>
             </div>
             <div>
                 <label for="patronymic">Отчество</label>
@@ -42,22 +42,22 @@
             </div>
             <div>
                 <label for="login">Логин</label>
-                <input type="text" id="login" name="login" placeholder="Ivan1982">
+                <input type="text" id="login" name="login" placeholder="Ivan1982" required>
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Ivan1982@mail.ru">
+                <input type="email" id="email" name="email" placeholder="Ivan1982@mail.ru" required>
             </div>
             <div>
                 <label for="password">Пароль</label>
-                <input type="text" id="password" name="password" placeholder="Пароль">
+                <input type="text" id="password" name="password" placeholder="Пароль" required>
             </div>
             <div>
                 <label for="confpassword">Подтверждение пароля</label>
-                <input type="text" id="confpassword" placeholder="Повтор пароля">
+                <input type="text" id="confpassword" placeholder="Повтор пароля" required>
             </div>
             <section>
-                <input type="checkbox" name="rules" id="rules">
+                <input type="checkbox" name="rules" id="rules" required>
                 <label for="rules">Согласие на обработку персональных данных</label>
             </section>
             <p class="mt-2 text-gray-500">Уже есть аккаунт? - <a href="{{route('login.index')}}" class="underline">Войти</a></p>

@@ -48,7 +48,8 @@
         </div>
         <style>
             .swiper {
-                width: 600px;
+                width: 100%;
+                max-width: 600px;
                 max-height: 400px;
             }
 

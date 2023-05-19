@@ -38,36 +38,38 @@
 <div class="container">
     <div class="mt-8">
         <p class="categoryAddBtn">Создать категорию</p>
-        <table class="categoriesTable mt-4">
-            <thead>
-            <tr>
-                <td>ID</td>
-                <td>Название</td>
-                <td>Управление</td>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($categories as $category)
-                <tr class="">
-                    <td class="">{{$category->id}}</td>
-                    <td class="">{{$category->title}}</td>
-                    <td class="">
-                        <form action="{{route('admin.categoryDestroy', $category->id)}}" method="post"
-                              class="flex justify-end gap-2">
-                            @csrf
-                            @method('delete')
-                            <a href="{{route('admin.categoryShow', $category->id)}}"
-                               class="bg-orange-400 py-1 px-2 rounded text-white hover:opacity-[.8]">Редактировать
-                            </a>
-                            <button type="submit" value="delete" name="value"
-                                    class="bg-red-400 py-1 px-2 rounded text-white hover:opacity-[.8]">Удалить
-                            </button>
-                        </form>
-                    </td>
+        <div class="overflow-x-scroll">
+            <table class="categoriesTable mt-4">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Название</td>
+                    <td>Управление</td>
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach($categories as $category)
+                    <tr class="">
+                        <td class="">{{$category->id}}</td>
+                        <td class="">{{$category->title}}</td>
+                        <td class="">
+                            <form action="{{route('admin.categoryDestroy', $category->id)}}" method="post"
+                                  class="flex justify-end gap-2">
+                                @csrf
+                                @method('delete')
+                                <a href="{{route('admin.categoryShow', $category->id)}}"
+                                   class="bg-orange-400 py-1 px-2 rounded text-white hover:opacity-[.8]">Редактировать
+                                </a>
+                                <button type="submit" value="delete" name="value"
+                                        class="bg-red-400 py-1 px-2 rounded text-white hover:opacity-[.8]">Удалить
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
 
 
     </div>

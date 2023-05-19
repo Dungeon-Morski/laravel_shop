@@ -28,7 +28,7 @@
                                     <p>ID заказа: {{$order->id}}</p>
                                     @foreach($order->orderProduct as $item)
 
-                                        <div class="order_card flex gap-2 mt-2">
+                                        <div class="order_card flex gap-2 mt-2 flex-col sm:flex-row items-center">
                                             <img src="{{asset('storage/'.$item->product->image)}}"
                                                  alt="product-image" class="w-[200px]">
                                             <div class="">
@@ -42,9 +42,21 @@
                                     @endforeach
                                     <p class="mt-4">Цена заказа: {{$order->price}}</p>
                                     <p class="">Количество товаров: <?php echo $count; ?></p>
-                                    <p>Статус: {{$order->status}}</p>
+                                    <p>Статус:
+                                        <span class="
+                                        @if($order->status == 'Новый')
+                                                text-orange-400
+                                                @elseif($order->status == 'Подтвержден')
+                                                text-green-500
+                                                @else
+                                                text-red-400
+                                        @endif
+                                        ">{{$order->status}}</span>
+                                    </p>
                                     @if(!empty($order->result))
-                                        <p>Сообщение: {{$order->result}}</p>
+                                        <p>Сообщение:
+                                            {{$order->result}}
+                                        </p>
                                     @endif
                                     <form action="{{route('order.delete', $order->id)}}" method="post" class=""
                                           data-id="{{$order->id}}">

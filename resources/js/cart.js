@@ -5,22 +5,22 @@ import $ from 'jquery';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 
-
 let $orderCount = $('.OrderCount');
-let $prices = $('.productPrice');
+
 let sum = 0;
 
+function calcCount() {
+    let $prices = $('.productPrice');
 
-showCount()
-
-function showCount() {
     $prices.each(function () {
         sum += parseInt($(this).data('num') * $(this).data('quantity'));
+
     });
+
+    $orderCount.text(sum);
 }
 
-$orderCount.text(sum);
-
+calcCount()
 //order placement function
 $('.orderBtn').on('click', () => {
     Swal.fire({
@@ -57,8 +57,7 @@ $('.orderBtn').on('click', () => {
                             'Заказ успешно оформлен',
                             'success'
                         ).then(function () {
-                            location.reload();
-                            return false;
+                            window.location.href = response.url;
                         })
                     } else {
                         Swal.fire({
@@ -108,7 +107,7 @@ $(".cartForm").submit(function (e) {
 
             if (e.originalEvent.submitter.value == 'decrement') {
 
-                cartForm.children('.productCount').text(response.count - 1)
+                cartForm.children('.productCount').text(response.count - 1);
                 location.reload();
                 return false;
 
@@ -118,6 +117,7 @@ $(".cartForm").submit(function (e) {
 
             } else if (response.count != null) {
                 cartForm.children('.productCount').text(response.count + 1)
+
                 location.reload();
                 return false;
 
