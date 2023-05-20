@@ -20,7 +20,7 @@
                     <p class="text-center text-xl text-indigo-400">Коризна пуста</p>
                 @endif
                 @if(!$cart->isEmpty())
-                    <div class="flex justify-between gap-2 relative flex-col md:flex-row">
+                    <div class="mb-8 flex justify-between gap-2 relative flex-col md:flex-row">
 
                         <div class="flex gap-2 h-[700px] flex-col overflow-y-scroll order-2 md:order-1 w-full">
                             @foreach($cart as $item)

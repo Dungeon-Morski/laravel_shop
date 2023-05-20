@@ -21,11 +21,11 @@
 
 <div class="overlay"></div>
 <div class="overlay_form_block">
-    <form action="{{route('admin.categoryCreate')}}" method="post" class="categoryAddForm flex flex-col gap-2">
+    <form action="{{route('admin.categoryCreate')}}" method="post" class="categoryAddForm flex flex-col gap-2 !border-none">
         @csrf
 
         <div>
-            <label for="">Навание</label>
+            <label for="" class="text-white">Навание</label>
             <input type="text" value="" name="title" required>
         </div>
         <div class="flex !flex-row gap-2">
@@ -38,7 +38,7 @@
 <div class="container">
     <div class="mt-8">
         <p class="categoryAddBtn">Создать категорию</p>
-        <div class="overflow-x-scroll">
+        <div class="overflow-x-auto">
             <table class="categoriesTable mt-4">
                 <thead>
                 <tr>

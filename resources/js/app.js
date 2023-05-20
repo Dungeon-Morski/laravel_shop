@@ -10,7 +10,8 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
 $('.burgerBlock').on('click', () => {
-    $('.header_items').toggleClass('h-[50px]');
+    $('.header_items').toggleClass('active');
+
 
 })
 

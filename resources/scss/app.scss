@@ -180,8 +180,13 @@ body {
 }
 
 .header_items {
-    &.active {
+    height: 50px;
+    transition: .2s;
 
+    &.active {
+        height: 100vh;
+        justify-content: center;
+        transition: .3s;
     }
 }
 
@@ -199,7 +204,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0px 5px;
 }
@@ -362,6 +367,27 @@ body {
             }
 
         }
+    }
+}
+
+.filterBlock {
+    select, button, option {
+        cursor: pointer;
+
+    }
+
+    input, select {
+        outline: none;
+        border: 1px solid gray;
+    }
+
+    select, input {
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    input {
+        padding: 12px;
     }
 }
 

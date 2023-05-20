@@ -1,6 +1,6 @@
 <header class="header">
     <div class="container">
-        <div class="header_items flex justify-between items-center flex-col gap-2 md:flex-row h-[50px] overflow-hidden">
+        <div class="header_items flex justify-between items-center flex-col gap-2 md:flex-row  overflow-hidden">
             <div>
                 <a href="{{route('products')}}" class="flex items-center gap-1 text-lg text-white">
                     <img src="{{asset('images/logo.svg')}}" alt="logo" class="w-[40px]">

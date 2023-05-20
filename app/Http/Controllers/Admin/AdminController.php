@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+
+use App\Http\Filters\OrderFilter;
+use App\Http\Filters\ProductFilter;
+use App\Http\Requests\Product\FilterRequest;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -18,12 +22,17 @@ class AdminController extends Controller
     }
 
     //products function
-    public function products()
+    public function products(FilterRequest $request)
     {
-        $categories = ProductCategory::all();
-        $products = Product::with('category')->get();
+        $data = $request->validated();
 
-        return view('admin.products', compact('products', 'categories'));
+        $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
+
+        $countries = Product::distinct()->pluck('country');
+        $categories = ProductCategory::all();
+        $products = Product::filter($filter)->with('category')->latest()->paginate(6);
+
+        return view('admin.products', compact('products', 'categories', 'countries'));
     }
 
     public function productDestroy(Request $request, Product $product)
@@ -136,9 +145,14 @@ class AdminController extends Controller
     }
 
     //orders function
-    public function orders()
+    public function orders(FilterRequest $request)
     {
-        $orders = Order::withCount('orderProduct', 'user')->get();
+        $data = $request->validated();
+
+        $filter = app()->make(OrderFilter::class, ['queryParams' => array_filter($data)]);
+
+        $orders = Order::filter($filter)->withCount('orderProduct', 'user')->latest()->paginate(1);
+
 
         return view('admin.orders', compact('orders'));
     }

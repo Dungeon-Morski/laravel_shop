@@ -13,7 +13,28 @@
 <main>
     <div class="container">
         <div class="mt-8">
-            <p class="text-xl">Добро пожаловать в личный кабинет</p>
+            <div class="filterBlock mt-4">
+                <form action="{{route('admin.orders')}}" method="get" class="flex">
+                    @csrf
+                    <div class="flex gap-3 justify-center md:justify-between w-full flex-wrap">
+
+                        <div class="flex gap-2 items-center flex-col md:flex-row w-full md:w-auto">
+
+                            <select name="status" id="" class="w-full">
+                                <option name="status" selected value="">Выберите статус</option>
+                                <option name="status" value="Новый">Новый</option>
+                                <option name="status" value="Подтвержден">Подтвержден</option>
+                                <option name="status" value="Отклонен">Отклонен</option>
+                            </select>
+
+                        </div>
+                        <div class="flex items-center gap-2 w-full md:w-auto">
+                            <a href="{{route('admin.orders')}}" class="p-2 bg-blue-500 rounded text-white text-center align-middle w-full">Сбросить</a>
+                            <button type="submit" class="bg-green-500 text-white p-2 rounded w-full">Найти</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="product_block my-12">
                 <div class="container">
 
@@ -52,7 +73,7 @@
                                         @method('PATCH')
                                         <div>
                                             <label for="status">Статус</label>
-                                            <select name="status" id="status" class="">
+                                            <select name="status" id="status" class="rounded">
                                                 <option selected value="{{$order->status}}">{{$order->status}}</option>
                                                 <option value="Подтвержден" name="status">Подтвержден</option>
                                                 <option value="Отклонен" name="status">Отклонен</option>
@@ -60,7 +81,7 @@
                                         </div>
                                         <div class="my-2">
                                             <label for="">Сообщение</label>
-                                            <input type="text" required class="border" name="result" value="{{$order->result}}">
+                                            <input type="text" required class="border pl-1 outline-none rounded w-full max-w-[500px]" name="result" value="{{$order->result}}">
                                         </div>
                                         <button type="submit"
                                                 class="mt-4 ml-auto rounded bg-green-600 px-4 py-2 text-white">Сохранить
@@ -71,12 +92,15 @@
 
                             @endforeach
                         </div>
-
+                        <div class="mt-5">
+                            {{$orders->withQueryString()->links()}}
+                        </div>
                     </div>
 
 
                 </div>
             </div>
+
         </div>
     </div>
 </main>

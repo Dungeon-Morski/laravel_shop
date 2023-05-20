@@ -2,20 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Filters\ProductFilter;
+use App\Http\Requests\Product\FilterRequest;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(FilterRequest $request)
     {
 
-        $products = Product::with('category')->latest()->get();
+        $data = $request->validated();
 
-        return view('product.index', compact('products'));
+        $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
+
+        $products = Product::filter($filter)->with('category')->where('quantity', '>', 0)->latest()->paginate(6);
+
+        $categories = ProductCategory::all();
+        $countries = Product::distinct()->pluck('country');
+
+        return view('product.index', compact('products', 'categories', 'countries'));
     }
 
     public function show(Product $product)
