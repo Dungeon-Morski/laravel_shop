@@ -31,7 +31,15 @@
                                 @csrf
 
                                 <button type="submit"
-                                        class="addToCartBtn bg-green-500 px-2 py-2 text-white w-full rounded">В корзину
+                                        @if(Auth::user()->is_admin == 1)
+                                            disabled
+                                        @endif
+                                        class="addToCartBtn bg-green-500 px-2 py-2 text-white w-full rounded">
+                                    @if(Auth::user()->is_admin == 1)
+                                        Смените роль
+                                    @else
+                                        В корзину
+                                    @endif
                                 </button>
 
                             </form>

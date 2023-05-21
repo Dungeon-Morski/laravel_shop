@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Filters\ProductFilter;
-use App\Http\Requests\Product\FilterRequest;
+use App\Http\Requests\Product\ProductFilterRequest;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function index(FilterRequest $request)
+    public function index(ProductFilterRequest $request)
     {
 
         $data = $request->validated();
 
         $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
 
-        $products = Product::filter($filter)->with('category')->where('quantity', '>', 0)->latest()->paginate(6);
+        $products = Product::filter($filter)->with('category')->where('quantity', '>', 0)->latest()->paginate(8);
 
         $categories = ProductCategory::all();
         $countries = Product::distinct()->pluck('country');

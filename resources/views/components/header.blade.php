@@ -8,18 +8,23 @@
                 </a>
             </div>
             <ul class="header_navigation flex gap-2 md:gap-4 items-center text-white flex-col md:flex-row">
-                <li><a href="{{route('products')}}">Каталог</a></li>
-                @guest
 
-                @endguest
-                {{--                <li><a href="{{route('products')}}">Товары</a></li>--}}
-                {{--                @if(Auth::user()->is_admin == 1)--}}
-                {{--                    <li><a href="">Категории</a></li>--}}
-                {{--                    <li><a href="">Заказы</a></li>--}}
-                {{--                @else--}}
-                <li><a href="{{route('about')}}">О нас</a></li>
-                <li><a href="{{route('map')}}">Где нас найти? </a></li>
-                {{--                @endif--}}
+                <li class="
+                @if(Request::getRequestUri() == '/products')
+                    active
+                @endif
+                "><a href="{{route('products')}}">Каталог</a></li>
+                <li class="
+                @if(Request::getRequestUri() == '/about')
+                    active
+                @endif
+                "><a href="{{route('about')}}">О нас</a></li>
+                <li class="
+                @if(Request::getRequestUri() == '/map')
+                    active
+                @endif
+                "><a href="{{route('map')}}">Где нас найти? </a></li>
+
             </ul>
             <div class="auth flex gap-2 items-center">
 

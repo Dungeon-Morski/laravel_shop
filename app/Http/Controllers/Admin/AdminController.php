@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Filters\OrderFilter;
 use App\Http\Filters\ProductFilter;
-use App\Http\Requests\Product\FilterRequest;
+use App\Http\Requests\Product\ProductFilterRequest;
+use App\Http\Requests\Order\OrderFilterRequest;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -22,7 +23,7 @@ class AdminController extends Controller
     }
 
     //products function
-    public function products(FilterRequest $request)
+    public function products(ProductFilterRequest $request)
     {
         $data = $request->validated();
 
@@ -145,7 +146,7 @@ class AdminController extends Controller
     }
 
     //orders function
-    public function orders(FilterRequest $request)
+    public function orders(OrderFilterRequest $request)
     {
         $data = $request->validated();
 

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Мир цветов - продукты</title>
 
-
     @vite(['resources/scss/app.scss','resources/js/app.js','resources/js/product.js'])
 
 </head>
@@ -40,7 +39,8 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2 w-full md:w-auto">
-                        <a href="{{route('products')}}" class="p-2 bg-blue-500 rounded text-white text-center align-middle w-full">Сбросить</a>
+                        <a href="{{route('products')}}"
+                           class="p-2 bg-blue-500 rounded text-white text-center align-middle w-full">Сбросить</a>
                         <button type="submit" class="bg-green-500 text-white p-2 rounded w-full">Найти</button>
                     </div>
                 </div>
@@ -69,7 +69,13 @@
                                         @if(Auth::user()->is_admin == 1)
                                             disabled
                                         @endif
-                                        class="addToCartBtn bg-green-500 px-2 py-2 text-white w-full rounded">В корзину
+                                        class="addToCartBtn bg-green-500 px-2 py-2 text-white w-full rounded">
+                                    @if(Auth::user()->is_admin == 1)
+                                        Смените роль
+                                    @else
+                                        В корзину
+                                    @endif
+
                                 </button>
 
                             </form>

@@ -13,8 +13,11 @@
 <main>
     <div class="container">
         <div class="mt-8">
-            <p class="text-xl">Добро пожаловать в личный кабинет</p>
-            <div class="product_block my-12">
+            @if(!$orders->isEmpty())
+                <p class="text-xl">Заказы</p>
+            @endif
+
+            <div class="product_block mt-4 mb-12">
                 <div class="container">
 
                     @if($orders->isEmpty())
@@ -72,7 +75,9 @@
                         </div>
 
                     </div>
-
+                    <div class="mt-5">
+                        {{$orders->withQueryString()->links()}}
+                    </div>
 
                 </div>
             </div>

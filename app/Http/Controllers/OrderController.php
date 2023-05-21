@@ -13,7 +13,7 @@ class OrderController extends Controller
     public function index(Request $request)
     {
 
-        $orders = Order::withCount('orderProduct')->where('user_id', Auth::user()->id)->get();
+        $orders = Order::withCount('orderProduct')->where('user_id', Auth::user()->id)->paginate(1);
 
         return view('user.order', compact('orders'));
 

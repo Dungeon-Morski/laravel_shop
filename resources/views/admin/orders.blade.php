@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Кабинет</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @vite(['resources/scss/app.scss','resources/js/app.js','resources/js/cart.js'])
+    @vite(['resources/scss/app.scss','resources/js/app.js'])
 
 </head>
 <body class="antialiased">
@@ -14,8 +14,8 @@
     <div class="container">
         <div class="mt-8">
             <div class="filterBlock mt-4">
-                <form action="{{route('admin.orders')}}" method="get" class="flex">
-                    @csrf
+                <form action="" method="" class="flex">
+
                     <div class="flex gap-3 justify-center md:justify-between w-full flex-wrap">
 
                         <div class="flex gap-2 items-center flex-col md:flex-row w-full md:w-auto">
@@ -96,7 +96,6 @@
                             {{$orders->withQueryString()->links()}}
                         </div>
                     </div>
-
 
                 </div>
             </div>

@@ -15,7 +15,7 @@
         <p class="text-lg">Email: MirCvetor2023@mail.ru</p>
         <div class="flex justify-center mt-4 mapBlock">
             <img src="{{asset('images/map.jpg')}}"
-                 alt="product-image" class="">
+                 alt="Карта" class="rounded">
         </div>
     </div>
 </div>

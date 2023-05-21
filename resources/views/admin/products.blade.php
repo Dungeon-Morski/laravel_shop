@@ -126,12 +126,12 @@
                             <p>Страна производитель: {{$product->country}}</p>
                         </div>
                         <a href="{{route('admin.productShow', $product->id)}}"
-                           class="bg-orange-500 py-2 px-2 text-center rounded text-white hover:text-black">Редактировать</a>
+                           class="bg-orange-500 py-2 px-2 text-center rounded text-white hover:bg-orange-600">Редактировать</a>
                         <form action="{{route('admin.productDestroy', $product->id)}}" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit"
-                                    class="mt-2 w-full bg-red-500 py-2 px-2 text-center rounded text-white hover:text-black">
+                                    class="mt-2 w-full bg-red-500 py-2 px-2 text-center rounded text-white hover:bg-red-600 ">
                                 Удалить
                             </button>
                         </form>

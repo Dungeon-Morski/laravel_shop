@@ -20,7 +20,10 @@
 
         <p class="mt-2">Наш девиз: Цветы — это больше, чем слова</p>
         <div class="mt-4">
-            <h1 class="text-center text-xl">Новинки компании</h1>
+            @if(!$products->isEmpty())
+                <h1 class="text-center text-xl">Новинки компании</h1>
+            @endif
+
             <!-- Slider main container -->
             <div class="swiper mt-4">
                 <!-- Additional required wrapper -->
@@ -46,18 +49,6 @@
                 <div class="swiper-scrollbar"></div>
             </div>
         </div>
-        <style>
-            .swiper {
-                width: 100%;
-                max-width: 600px;
-                max-height: 400px;
-            }
-
-        </style>
-        <script>
-
-        </script>
-
 
     </div>
 </div>

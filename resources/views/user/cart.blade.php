@@ -12,7 +12,7 @@
 <x-header></x-header>
 <div class="container">
     <div class="mt-8">
-        <p class="text-xl">Добро пожаловать в личный кабинет</p>
+{{--        <p class="text-xl">Добро пожаловать в личный кабинет</p>--}}
         <div class="product_block mt-12">
             <div class="container">
 
@@ -22,7 +22,7 @@
                 @if(!$cart->isEmpty())
                     <div class="mb-8 flex justify-between gap-2 relative flex-col md:flex-row">
 
-                        <div class="flex gap-2 h-[700px] flex-col overflow-y-scroll order-2 md:order-1 w-full">
+                        <div class="flex gap-2 h-[700px] flex-col overflow-y-auto order-2 md:order-1 w-full">
                             @foreach($cart as $item)
 
                                 <div class="card border rounded border-black p-2 flex gap-2 items-center h-min w-full">
@@ -47,14 +47,14 @@
                                                 <button type="submit"
                                                         value="increment"
                                                         name="value"
-                                                        class="addToCart bg-green-500 hover:opacity-[.8] px-1 py-1 text-white w-full rounded">
+                                                        class="increment bg-green-500 px-1 py-1 text-white w-full rounded">
                                                     +
                                                 </button>
                                                 <p class="productCount w-full text-center">{{$item->quantity}}</p>
                                                 <button type="submit"
                                                         value="decrement"
                                                         name="value"
-                                                        class="addToCart bg-red-500 hover:opacity-[.8] px-1 py-1 text-white w-full rounded">
+                                                        class="decrement bg-red-500  px-1 py-1 text-white w-full rounded">
                                                     -
                                                 </button>
                                             </form>

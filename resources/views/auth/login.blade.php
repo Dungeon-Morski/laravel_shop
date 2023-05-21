@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Мир цветов - продукты</title>
 
-    @vite(['resources/scss/app.scss','resources/js/app.js','resources/js/register.js'])
+    @vite(['resources/scss/app.scss','resources/js/app.js'])
 </head>
 <body class="antialiased">
 <div class="container">
