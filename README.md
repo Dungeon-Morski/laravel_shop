@@ -1,4 +1,6 @@
 <p align="center">
     Run project steps
-    - php artisan migrate --seed
+   <ul>
+       <li> - php artisan migrate --seed</li>
+   </ul>
 </p>
